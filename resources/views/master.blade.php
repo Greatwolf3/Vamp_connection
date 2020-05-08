@@ -20,6 +20,11 @@
                     <div class="col-12"><a class="btn btn_primary" href="{{ route('user_connection') }}"> Visualizza connessioni</a></div>
 
         </div>
+        <div class="row mt-2">
+
+
+            <div class="col-12"><a class="btn btn_primary" href="{{ route('crea_pg_admin') }}"> Crea Evento</a></div>
+        </div>
     </div>
     <div class="col-10">
         @section('sub_content')

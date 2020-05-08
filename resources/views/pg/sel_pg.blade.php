@@ -10,7 +10,7 @@
                 <label for="user" class="label_size">{{ trans('user.pg_name')  }}</label>
                 <select class="selectpicker " name="id_pg" id="id_pg" data-live-search="true"
                         data-style="btn-custom btn-dark">
-                    <option value="">{{ trans('clan.user') }}</option>
+                    <option value="">{{ trans('user.pg_name') }}</option>
                     @foreach($pg as $personaggio)
                         <option value="{{ $personaggio->id }}">{{ $personaggio->nome_pg }}</option>
                     @endforeach

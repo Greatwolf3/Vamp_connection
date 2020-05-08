@@ -23,7 +23,7 @@
 
             </div>
             <div class="col-3">
-                <label for="id_clan" class="label_size">{{ trans('user.title_clan')  }}</label>
+                <label for="id_clan" class="label_size">{{ trans('user.select_clan_title')  }}</label>
                 <select class="selectpicker " name="id_clan" id="clan_pg" data-live-search="true"
                         data-style="btn-custom btn-dark">
                     <option value="">{{ trans('clan.select_clan') }}</option>
@@ -38,7 +38,7 @@
 
             </div>
             <div class="col-3">
-                <label for="id_citta" class="label_size">{{ trans('user.title_citta')  }}</label>
+                <label for="id_citta" class="label_size">{{ trans('user.select_citta_title')  }}</label>
                 <select class="selectpicker" name="id_citta" id="id_citta" data-live-search="true"
                         data-style="btn-custom btn-dark">
                     <option value="">{{ trans('citta.select_citta') }}</option>
