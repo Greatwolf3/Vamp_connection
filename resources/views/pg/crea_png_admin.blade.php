@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('sub_content')
-    <form method="post" action="{{ route("save_pg") }}">
+    <form method="post" action="{{ route("save_png") }}">
         <input name="_token" value="{{ csrf_token() }}" type="hidden">
         <input type="hidden" name="id_user" id="id_user" value="{{auth()->user()->id}}">
         <div class="row">
@@ -10,7 +10,7 @@
                 <label for="user" class="label_size">{{ trans('user.utente')  }}</label>
                 <select class="selectpicker " name="user" id="user" data-live-search="true"
                         data-style="btn-custom btn-dark">
-                    <option value="">{{ trans('user.select_clan') }}</option>
+                    <option value="0">Master</option>
                     @foreach($utenti as $user)
                         <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
@@ -22,10 +22,10 @@
 
             </div>
             <div class="col-3 pt-2">
-                <label for="nome_pg" class="label_size">{{ trans('user.pg_name')  }}</label>
-                <input type="text" id="nome_pg" name="nome_pg" value="">
-                @if ($errors->has('nome_pg')) <p class="help-block" style="color:red;">
-                    {{ $errors->first('nome_pg') }}</p>
+                <label for="nome_pg" class="label_size">{{ trans('user.png_name')  }}</label>
+                <input type="text" id="nome_png" name="nome_png" value="">
+                @if ($errors->has('nome_png')) <p class="help-block" style="color:red;">
+                    {{ $errors->first('nome_png') }}</p>
                 @endif
 
             </div>
@@ -74,12 +74,8 @@
 
         </div>
     </form>
+
     <div class="row text-center mt-3">
-        <div class="col"> PG NON ATTIVI</div>
-    </div>
-    <div class="row text-center mt-3">
-    @foreach($pg_inactive as $pg)
-        <div class="col">{{ $pg->nome_pg }}</div>
-    @endforeach
+        <div class="col "> PNG NON ATTIVI</div>
     </div>
 @endsection

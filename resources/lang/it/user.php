@@ -1,9 +1,10 @@
 <?php
 
 return [
-
+    'utente'=>'Giocatore',
     'titolo_head'=>'Crea PG',
     'pg_name'=>'Nome PG',
+    'png_name'=>'Nome PNG',
     'btn_submit'=>'Invia',
     'title_clan' => 'Clan',
     'title_citta' => 'Città',

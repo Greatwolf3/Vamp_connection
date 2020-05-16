@@ -6,8 +6,18 @@ use App\Classes\Common;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
+use View;
+use DB;
 class PlayerController extends Controller
 {
+    public function __construct()
+    {
+        $pg_inactive=DB::table('pg')->where('attivo','=',0)->get();
+        $png_inactive=DB::table('png')->where('attivo','=',0)->get();
+        View::share('pg_inactive',$pg_inactive);
+        View::share('png_inactive',$png_inactive);
+    }
+
     public function crea_pg()
     {
 
@@ -25,6 +35,13 @@ class PlayerController extends Controller
         $clan=Common::get_all_clan();
         $citta=Common::get_all_city();
         return view("pg.crea_pg_admin",["clan"=>$clan,"citta"=>$citta,'utenti'=>$users]);
+    }
+    public function crea_png_admin()
+    {
+        $users=Common::get_all_users();
+        $clan=Common::get_all_clan();
+        $citta=Common::get_all_city();
+        return view("pg.crea_png_admin",["clan"=>$clan,"citta"=>$citta,'utenti'=>$users]);
     }
 
     public function add_alleato()
@@ -53,18 +70,23 @@ class PlayerController extends Controller
     public function seleziona_pg_admin()
     {
 
-        $pg=Common::get_all_pg();
+        $pg=Common::get_all_pg_active();
         return view("pg.sel_pg",["pg"=>$pg]);
     }
     public function mem_sel_pg_admin(Request $request)
     {
         $id_pg=$request->input('id_pg');
-        $pg=Common::get_pg($id_pg);
-        Session::forget('id_pg');
-        Session::forget('nome_pg');
-        Session::put('id_pg',$id_pg);
-        Session::put('nome_pg',$pg[0]->nome_pg);
-        return redirect()->route('master');
+        if (isset($id_pg) && $id_pg>0) {
+            $pg = Common::get_pg($id_pg);
+            Session::forget('id_pg');
+            Session::forget('nome_pg');
+            Session::put('id_pg', $id_pg);
+            Session::put('nome_pg', $pg[0]->nome_pg);
+            return redirect()->route('master');
+        }
+        else {
+            return view('pg.error',['utente'=>'NESSUN UTENTE']);
+        }
     }
 
     public function reset_sel_pg_admin (){

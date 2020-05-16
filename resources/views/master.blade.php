@@ -14,8 +14,10 @@
 
 
                     <div class="col-12"><a class="btn btn_primary" href="{{ route('crea_pg_admin') }}"> Crea Pg</a></div>
-                 <div class="col-12"><a class="btn btn_primary" href="{{ route('seleziona_pg_admin') }}"> Seleziona Pg</a></div>
-                    <div class="col-12"><a class="btn btn_primary" href="{{ route("add_alleato") }}"> Add Alleati</a></div>
+            <div class="col-12"><a class="btn btn_primary" href="{{ route('crea_png_admin') }}"> Crea PNG</a></div>
+            <div class="col-12"><a class="btn btn_primary" href="{{ route('seleziona_pg_admin') }}"> Seleziona Pg</a></div>
+
+            <div class="col-12"><a class="btn btn_primary" href="{{ route("add_alleato") }}"> Add Alleati</a></div>
                     <div class="col-12"><a class="btn btn_primary" href="{{ route("add_contatto_generico") }}"> Add contatto generico</a></div>
                     <div class="col-12"><a class="btn btn_primary" href="{{ route('user_connection') }}"> Visualizza connessioni</a></div>
 
@@ -23,7 +25,7 @@
         <div class="row mt-2">
 
 
-            <div class="col-12"><a class="btn btn_primary" href="{{ route('crea_pg_admin') }}"> Crea Evento</a></div>
+            <div class="col-12"><a class="btn btn_primary" href="{{ route('crea_evento_admin') }}"> Crea Evento</a></div>
         </div>
     </div>
     <div class="col-10">

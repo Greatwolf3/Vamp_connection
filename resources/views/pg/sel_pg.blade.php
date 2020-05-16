@@ -10,7 +10,7 @@
                 <label for="user" class="label_size">{{ trans('user.pg_name')  }}</label>
                 <select class="selectpicker " name="id_pg" id="id_pg" data-live-search="true"
                         data-style="btn-custom btn-dark">
-                    <option value="">{{ trans('user.pg_name') }}</option>
+                   <!-- <option value="0">{{ trans('user.pg_name') }}</option> -->
                     @foreach($pg as $personaggio)
                         <option value="{{ $personaggio->id }}">{{ $personaggio->nome_pg }}</option>
                     @endforeach
@@ -21,13 +21,12 @@
                 @endif
 
             </div>
+          <div class="col-12 text-center pt-3">
+    @if(count($pg)>0)<button class="btn btn-info">Memorizza PG selezionato</button> @endif
+         <a class="btn btn-primary" href="{{ route('reset_sel_pg_admin') }}" role="button">Reset selezione pg</a>
+     </div>
 
-            <div class="col-12 text-center pt-3">
-                <button class="btn btn-info">Memorizza PG selezionato</button>
-                <a class="btn btn-primary" href="{{ route('reset_sel_pg_admin') }}" role="button">Reset selezione pg</a>
-            </div>
 
-
-        </div>
-    </form>
+ </div>
+</form>
 @endsection

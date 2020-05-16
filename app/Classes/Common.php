@@ -17,13 +17,13 @@ class Common
     public static function get_pg($id_user)
     {
         $value=env('TABLE_PREFIX',null);
-        $sql = DB::table($value."pg")->where("id", "=", $id_user)->select("*")->get();
+        $sql = DB::table($value."pg")->where("id", "=", $id_user)->where("attivo", "=", 1)->select("*")->get();
         return $sql;
     }
-    public static function get_all_pg()
+    public static function get_all_pg_active()
     {
         $value=env('TABLE_PREFIX',null);
-        $sql = DB::table($value."pg")->select("*")->get();
+        $sql = DB::table($value."pg")->where("attivo", "=", 1)->select("*")->get();
         return $sql;
     }
     public static function get_alleanze_pg($id_pg)
